@@ -1,0 +1,27 @@
+CREATE TABLE users(
+   id_user INT AUTO_INCREMENT PRIMARY KEY,
+   nom VARCHAR(100) NOT NULL,
+   email VARCHAR(100) NOT NULL,
+   mot_de_passe VARCHAR(255) NOT NULL,
+   role VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE categorie(
+	id_cat INT AUTO_INCREMENT PRIMARY KEY,
+   nom VARCHAR(50),
+   type ENUM('revenu', 'depense') NOT NULL
+);
+
+CREATE TABLE TRANSACTION(
+   id_tra INT AUTO_INCREMENT PRIMARY KEY,
+   montant DECIMAL(10, 2) NOT NULL,
+   type ENUM('revenu', 'depense') NOT NULL,
+   date_tra DATETIME NOT NULL,
+   description VARCHAR(255),
+   
+   id_user INT NOT NULL,
+   id_cat INT NOT NULL,
+   
+   FOREIGN KEY(id_user) REFERENCES Utilisateur(id_user),
+   FOREIGN KEY(id_cat) REFERENCES categorie(id_cat)
+);
