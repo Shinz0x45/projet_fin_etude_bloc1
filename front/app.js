@@ -1,17 +1,24 @@
-const eyeButton = document.querySelector(".eye-btn");
+// app.js
+
+// ─── TOGGLE SOLDE ─────────────────────────────────────────────────────────────
+// Guard : ces éléments n'existent que sur index.html
+const eyeButton    = document.querySelector(".eye-btn");
 const balanceTitle = document.querySelector("#balance-title");
 
-let visible = true;
+if (eyeButton && balanceTitle) {
 
-eyeButton.addEventListener("click", () => {
+  let visible = true;
 
-  visible = !visible;
+  eyeButton.addEventListener("click", () => {
 
-  balanceTitle.textContent = visible
-    ? "€ 12,480.00"
-    : "••••••••";
+    visible = !visible;
 
-  eyeButton.innerHTML = visible
-    ? '<i class="fa-regular fa-eye"></i>'
-    : '<i class="fa-regular fa-eye-slash"></i>';
-});
+    balanceTitle.textContent = visible
+      ? "€ 12,480.00"
+      : "••••••••";
+
+    eyeButton.innerHTML = visible
+      ? '<i class="fa-regular fa-eye"></i>'
+      : '<i class="fa-regular fa-eye-slash"></i>';
+  });
+}

@@ -4,39 +4,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Budget Analyse</title>
-
   <link rel="stylesheet" href="assets/css/style.css" />
-
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<!-- Import Scripts -->
+  <script src="app.js" defer></script>
 </head>
 
 <body>
 
-  <!-- APP -->
   <div class="app-container">
 
     <!-- HEADER -->
     <header class="topbar">
-
       <button class="icon-btn" aria-label="Ouvrir le menu">
         <i class="fa-solid fa-bars"></i>
       </button>
-
       <div class="profile">
         <div>
           <p class="welcome">Bienvenue</p>
           <h1>Rémi</h1>
         </div>
-
         <img src="https://i.pravatar.cc/100" alt="Photo de profil" class="avatar"/>
       </div>
-
     </header>
 
     <!-- MAIN -->
@@ -44,173 +37,129 @@
 
       <!-- BALANCE CARD -->
       <section class="balance-card" aria-labelledby="balance-title">
-
         <div class="balance-top">
           <div>
             <p class="label">Solde total</p>
             <h2 id="balance-title">€ 12,480.00</h2>
           </div>
-
-          <button class="eye-btn" aria-label="Afficher ou masquer le solde" >
+          <button class="eye-btn" aria-label="Afficher ou masquer le solde">
             <i class="fa-regular fa-eye"></i>
           </button>
         </div>
-
         <div class="card-footer">
-
           <div>
             <p class="small-label">Revenus</p>
             <span class="income">+ €2,340</span>
           </div>
-
           <div>
             <p class="small-label">Dépenses</p>
             <span class="expense">- €1,120</span>
           </div>
-
         </div>
-
       </section>
 
       <!-- ACTIONS -->
-      <section class="actions-section" aria-labelledby="actions-title" >
-
+      <section class="actions-section" aria-labelledby="actions-title">
         <div class="section-heading">
           <h2 id="actions-title">Actions rapides</h2>
         </div>
-
         <div class="actions-grid">
-
           <button class="action-card">
             <i class="fa-solid fa-paper-plane"></i>
             <span>Transfert</span>
           </button>
-
           <button class="action-card">
             <i class="fa-solid fa-wallet"></i>
             <span>Wallet</span>
           </button>
-
-          <button class="action-card">
+          <button class="action-card" onclick="window.location.href='analysis.html'">
             <i class="fa-solid fa-chart-line"></i>
             <span>Stats</span>
           </button>
-
           <button class="action-card">
             <i class="fa-solid fa-credit-card"></i>
             <span>Cards</span>
           </button>
-
         </div>
-
       </section>
 
       <!-- TRANSACTIONS -->
-      <section class="transactions" aria-labelledby="transactions-title" >
-
+      <section class="transactions" aria-labelledby="transactions-title">
         <div class="section-heading">
-          <h2 id="transactions-title">
-            Transactions récentes
-          </h2>
-
-          <button class="text-btn">
-            Voir tout
-          </button>
+          <h2 id="transactions-title">Transactions récentes</h2>
+          <button class="text-btn">Voir tout</button>
         </div>
-
         <div class="transaction-list">
 
-          <!-- ITEM -->
           <article class="transaction-item">
-
             <div class="transaction-left">
               <div class="transaction-icon spotify">
                 <i class="fa-brands fa-spotify"></i>
               </div>
-
               <div>
                 <h3>Spotify</h3>
                 <p>Abonnement mensuel</p>
               </div>
             </div>
-
             <span class="negative">- €9.99</span>
-
           </article>
 
-          <!-- ITEM -->
           <article class="transaction-item">
-
             <div class="transaction-left">
               <div class="transaction-icon amazon">
                 <i class="fa-brands fa-amazon"></i>
               </div>
-
               <div>
                 <h3>Amazon</h3>
                 <p>Achat équipement</p>
               </div>
             </div>
-
             <span class="negative">- €74.90</span>
-
           </article>
 
-          <!-- ITEM -->
           <article class="transaction-item">
-
             <div class="transaction-left">
               <div class="transaction-icon paypal">
                 <i class="fa-brands fa-paypal"></i>
               </div>
-
               <div>
                 <h3>PayPal</h3>
                 <p>Paiement reçu</p>
               </div>
             </div>
-
             <span class="positive">+ €320.00</span>
-
           </article>
 
         </div>
-
       </section>
 
     </main>
 
     <!-- BOTTOM NAV -->
     <nav class="bottom-nav" aria-label="Navigation principale">
-
-      <button class="nav-item active" aria-current="page" >
+      <button class="nav-item active" aria-current="page">
         <i class="fa-solid fa-house"></i>
         <span>Accueil</span>
       </button>
-
-      <button class="nav-item">
+      <button class="nav-item" onclick="window.location.href='analysis.html'">
         <i class="fa-solid fa-chart-pie"></i>
         <span>Analyse</span>
       </button>
-
       <button class="nav-item center-btn">
         <i class="fa-solid fa-plus"></i>
       </button>
-
       <button class="nav-item">
         <i class="fa-regular fa-bell"></i>
         <span>Alertes</span>
       </button>
-
       <button class="nav-item">
         <i class="fa-regular fa-user"></i>
         <span>Profil</span>
       </button>
-
     </nav>
 
   </div>
 
-  <script src="app.js"></script>
+  
 </body>
 </html>
