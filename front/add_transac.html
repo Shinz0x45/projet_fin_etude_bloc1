@@ -1,0 +1,61 @@
+:<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ajouter une transaction</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="topbar">
+      <button class="icon-btn" aria-label="Ouvrir le menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="profile">
+        <div>
+          <p class="welcome">Bienvenue</p>
+          <h1>Rémi</h1>
+        </div>
+        <img src="./assets/img/pdp_anonyme.png" alt="Photo de profil" class="avatar"/>
+      </div>
+    </header>
+
+    <main>
+      <section class="add-transaction">
+        <h2>Ajouter une transaction</h2>
+        <form id="transaction-form">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" id="description" name="description" required />
+          </div>
+          <div class="form-group">
+            <label for="amount">Montant</label>
+            <input type="number" id="amount" name="amount" step]="0.01" required />
+          </div>
+          <div class="form-group">
+            <label for "type">Type</label>
+            <select id "type" name "type" required >
+              <option value "income">Revenu</option>
+              <option value "expense">Dépense</option>
+            </select>
+          </div>
+          <button type "submit">Ajouter la transaction</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav" aria-label("Navigation principale") >
+      <button class("nav-item active") aria-current("page") >
+        <i class("fa-solid fa-house") ></i>
+        <span>Accueil</span >
+      </button >
+      <button class("nav-item") onclick("window.location.href='analysis.html'") >
+        <i class("fa-solid fa-chart-pie") ></i >
+        <span>Analyse</span >
+      </button >
+      <button class("nav-item center-btn") >
+        <i class("fa-solid fa-plus") ></i >
+      </button >
