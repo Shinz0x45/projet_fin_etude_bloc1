@@ -3,365 +3,191 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Analyse Financière</title>
 
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-  />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
- 
 </head>
 
 <body>
 
-  <main class="mobile-container">
+  <!-- APP CONTAINER -->
+  <div class="app-container">
 
-<!-- HEADER -->
-<header class="topbar">
-
-    <button class="icon-btn" aria-label="Ouvrir le menu">
-        <i class="fa-solid fa-bars"></i>
-    </button>
-
-    <div class="profile">
+    <!-- HEADER -->
+    <header class="topbar">
+      <button class="icon-btn" aria-label="Retour" onclick="window.location.href='index.html'">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <div class="profile">
         <div>
-            <p class="welcome">Bienvenue</p>
-            <h1>Rémi</h1>
+          <p class="welcome">Bienvenue</p>
+          <h1>Rémi</h1>
         </div>
-
-        <img src="https://i.pravatar.cc/100" alt="Photo de profil" class="avatar" />
-    </div>
-
-</header>
-
-<!-- SUMMARY -->
-<section class="summary-card mb-4" aria-labelledby="summary-title">
-
-    <p class="mb-2">Dépenses ce mois</p>
-
-    <h2 id="summary-title">
-        € 2,845.00
-    </h2>
-
-    <div class="d-flex justify-content-between mt-4">
-
-        <div>
-          <small>Budget</small>
-          <h5>€ 5,000</h5>
-        </div>
-
-        <div>
-          <small>Restant</small>
-          <h5>€ 2,155</h5>
-        </div>
-
+        <img src="/front/assets/img/pdp_anonyme.png" alt="Photo de profil" class="avatar" />
       </div>
+    </header>
 
-    </section>
+    <main>
 
-    <!-- STATS -->
-    <section
-      class="row g-3 mb-4"
-      aria-label="Statistiques"
-    >
+      <!-- SUMMARY -->
+      <section class="summary-card" aria-labelledby="summary-title">
+        <p class="summary-label">Dépenses ce mois</p>
+        <h2 id="summary-title">€ 2,845.00</h2>
+        <div class="summary-footer">
+          <div>
+            <small>Budget</small>
+            <h5>€ 5,000</h5>
+          </div>
+          <div>
+            <small>Restant</small>
+            <h5>€ 2,155</h5>
+          </div>
+        </div>
+      </section>
 
-      <div class="col-6">
-
+      <!-- STATS -->
+      <section class="stats-row" aria-label="Statistiques">
         <article class="stats-card">
           <h3>Revenus</h3>
-          <p class="text-success">
-            + € 4,200
-          </p>
+          <p class="positive">+ € 4,200</p>
         </article>
-
-      </div>
-
-      <div class="col-6">
-
         <article class="stats-card">
           <h3>Dépenses</h3>
-          <p class="text-danger">
-            - € 2,845
-          </p>
+          <p class="negative">- € 2,845</p>
+        </article>
+      </section>
+
+      <!-- CHART -->
+      <section class="chart-card" aria-labelledby="chart-title">
+        <div class="section-heading">
+          <h2 id="chart-title" class="chart-title">Dépenses hebdomadaires</h2>
+          <button class="text-btn">Export</button>
+        </div>
+        <canvas id="financeChart" aria-label="Graphique des dépenses"></canvas>
+      </section>
+
+      <!-- CATEGORIES -->
+      <section aria-labelledby="categories-title">
+        <div class="section-heading">
+          <h2 id="categories-title">Catégories</h2>
+          <button class="text-btn">Voir tout</button>
+        </div>
+
+        <!-- Shopping -->
+        <article class="category-item">
+          <div class="category-header">
+            <div class="category-label">
+              <i class="fa-solid fa-cart-shopping" style="color: var(--primary)"></i>
+              <span>Shopping</span>
+            </div>
+            <strong>€ 840</strong>
+          </div>
+          <div class="progress-bar-track" role="progressbar" aria-label="Shopping" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar-fill" style="width: 70%; background: var(--primary)"></div>
+          </div>
         </article>
 
-      </div>
-
-    </section>
-
-    <!-- CHART -->
-    <section
-      class="chart-card mb-4"
-      aria-labelledby="chart-title"
-    >
-
-      <div class="d-flex justify-content-between mb-3">
-
-        <h2
-          id="chart-title"
-          class="fs-6 fw-bold"
-        >
-          Dépenses hebdomadaires
-        </h2>
-
-        <button
-          class="btn btn-sm btn-outline-primary"
-        >
-          Export
-        </button>
-
-      </div>
-
-      <canvas
-        id="financeChart"
-        aria-label="Graphique des dépenses"
-      ></canvas>
-
-    </section>
-
-    <!-- CATEGORIES -->
-    <section aria-labelledby="categories-title">
-
-      <div class="d-flex justify-content-between mb-3">
-
-        <h2
-          id="categories-title"
-          class="fs-6 fw-bold"
-        >
-          Catégories
-        </h2>
-
-        <button
-          class="btn btn-sm btn-link text-decoration-none"
-        >
-          Voir tout
-        </button>
-
-      </div>
-
-      <!-- ITEM -->
-      <article class="category-item mb-3">
-
-        <div class="d-flex justify-content-between mb-2">
-
-          <div class="d-flex align-items-center gap-2">
-
-            <i class="bi bi-cart-fill text-primary"></i>
-
-            <span>Shopping</span>
-
+        <!-- Restaurants -->
+        <article class="category-item">
+          <div class="category-header">
+            <div class="category-label">
+              <i class="fa-solid fa-mug-hot" style="color: #f59e0b"></i>
+              <span>Restaurants</span>
+            </div>
+            <strong>€ 430</strong>
           </div>
-
-          <strong>€ 840</strong>
-
-        </div>
-
-        <div
-          class="progress"
-          role="progressbar"
-          aria-label="Shopping"
-          aria-valuenow="70"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-
-          <div
-            class="progress-bar"
-            style="width: 70%"
-          ></div>
-
-        </div>
-
-      </article>
-
-      <!-- ITEM -->
-      <article class="category-item mb-3">
-
-        <div class="d-flex justify-content-between mb-2">
-
-          <div class="d-flex align-items-center gap-2">
-
-            <i class="bi bi-cup-hot-fill text-warning"></i>
-
-            <span>Restaurants</span>
-
+          <div class="progress-bar-track" role="progressbar" aria-label="Restaurants" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar-fill" style="width: 45%; background: #f59e0b"></div>
           </div>
+        </article>
 
-          <strong>€ 430</strong>
-
-        </div>
-
-        <div
-          class="progress"
-          role="progressbar"
-          aria-label="Restaurants"
-          aria-valuenow="45"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
-
-          <div
-            class="progress-bar bg-warning"
-            style="width: 45%"
-          ></div>
-
-        </div>
-
-      </article>
-
-      <!-- ITEM -->
-      <article class="category-item">
-
-        <div class="d-flex justify-content-between mb-2">
-
-          <div class="d-flex align-items-center gap-2">
-
-            <i class="bi bi-controller text-danger"></i>
-
-            <span>Gaming</span>
-
+        <!-- Gaming -->
+        <article class="category-item">
+          <div class="category-header">
+            <div class="category-label">
+              <i class="fa-solid fa-gamepad" style="color: var(--danger)"></i>
+              <span>Gaming</span>
+            </div>
+            <strong>€ 220</strong>
           </div>
+          <div class="progress-bar-track" role="progressbar" aria-label="Gaming" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar-fill" style="width: 30%; background: var(--danger)"></div>
+          </div>
+        </article>
 
-          <strong>€ 220</strong>
+      </section>
 
-        </div>
+    </main>
 
-        <div
-          class="progress"
-          role="progressbar"
-          aria-label="Gaming"
-          aria-valuenow="30"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        >
+    <!-- BOTTOM NAV : utilise .nav-item comme style.css le définit -->
+    <nav class="bottom-nav" aria-label="Navigation principale">
+      <button class="nav-item" onclick="window.location.href='index.html'">
+        <i class="fa-solid fa-house"></i>
+        <span>Accueil</span>
+      </button>
+      <button class="nav-item active" aria-current="page">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Analyse</span>
+      </button>
+      <button class="nav-item center-btn">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <button class="nav-item">
+        <i class="fa-regular fa-bell"></i>
+        <span>Alertes</span>
+      </button>
+      <button class="nav-item">
+        <i class="fa-regular fa-user"></i>
+        <span>Profil</span>
+      </button>
+    </nav>
 
-          <div
-            class="progress-bar bg-danger"
-            style="width: 30%"
-          ></div>
-
-        </div>
-
-      </article>
-
-    </section>
-
-  </main>
-
-  <!-- BOTTOM NAV -->
-  <nav
-    class="bottom-nav"
-    aria-label="Navigation principale"
-  >
-
-    <button class="nav-btn">
-      <i class="bi bi-house"></i>
-      <span>Accueil</span>
-    </button>
-
-    <button
-      class="nav-btn active"
-      aria-current="page"
-    >
-      <i class="bi bi-pie-chart-fill"></i>
-      <span>Analyse</span>
-    </button>
-
-    <button class="nav-btn">
-      <i class="bi bi-plus-circle-fill"></i>
-      <span>Ajouter</span>
-    </button>
-
-    <button class="nav-btn">
-      <i class="bi bi-person"></i>
-      <span>Profil</span>
-    </button>
-
-  </nav>
+  </div>
 
   <script>
+    const ctx = document.getElementById("financeChart");
 
-    const ctx =
-      document
-        .getElementById("financeChart");
+    // Dégradé pour le remplissage
+    const gradient = ctx.getContext("2d").createLinearGradient(0, 0, 0, 200);
+    gradient.addColorStop(0, "rgba(99, 91, 255, 0.35)");
+    gradient.addColorStop(1, "rgba(99, 91, 255, 0.00)");
 
     new Chart(ctx, {
-
       type: "line",
-
       data: {
-
-        labels: [
-          "Lun",
-          "Mar",
-          "Mer",
-          "Jeu",
-          "Ven",
-          "Sam",
-          "Dim"
-        ],
-
+        labels: ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"],
         datasets: [{
-
           label: "Dépenses",
-
-          data: [
-            120,
-            190,
-            300,
-            250,
-            400,
-            350,
-            500
-          ],
-
+          data: [120, 190, 300, 250, 400, 350, 500],
           tension: 0.4,
-
           fill: true,
-
+          backgroundColor: gradient,
+          borderColor: "#635bff",
+          pointBackgroundColor: "#635bff",
+          pointRadius: 4,
           borderWidth: 3
-
         }]
       },
-
       options: {
-
         responsive: true,
-
         plugins: {
-
-          legend: {
-            display: false
-          }
+          legend: { display: false }
         },
-
         scales: {
-
-          y: {
-            beginAtZero: true
-          }
+          y: { beginAtZero: true }
         }
       }
     });
-
   </script>
 
 </body>
